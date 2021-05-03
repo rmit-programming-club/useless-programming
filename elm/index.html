@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Sam Nolan">
+  <meta name="dcterms.date" content="2021-04-23">
+  <title>Elm</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@4.1.0/dist/reset.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@4.1.0/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@4.1.0/dist/theme/black.css" id="theme">
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Elm</h1>
+  <p class="author">Sam Nolan</p>
+  <p class="date">3 May 2021</p>
+</section>
+
+<section id="introduction" class="title-slide slide level1">
+<h2>Yet Another Web Framework</h2>
+<p>Think React, AngularJS, Vue etc</p>
+<table>
+  <tr><th>Advantagaes</th><th>Disadvantages</th></tr>
+  <tr><td>Doesn't crash</td><td>Very hard to do some simple things (particularly Javascript interfacing)</td></tr>
+  <tr><td>Super fast and small</td><td>Community not as large as Javascript</td></tr>
+  <tr><td>Friendlist compiler ever</td><td>Language creator is unusual dictatorial</td></tr>
+  <tr><td>Super easy to refactor and scale</td><td>Verbose</td></tr>
+</table>
+<p>Warning! Usefuless score: 10%</p>
+</section>
+
+<section id="example" class="slide level2">
+<h1>Example code</h1>
+<p>From <a href="https://guide.elm-lang.org/">here</a></p>
+<pre>
+<code data-trim data-noescape>
+import Browser
+import Html exposing (Html, button, div, text)
+import Html.Events exposing (onClick)
+
+main =
+  Browser.sandbox { init = 0, update = update, view = view }
+
+type Msg = Increment | Decrement
+
+update msg model =
+  case msg of
+    Increment ->
+      model + 1
+
+    Decrement ->
+      model - 1
+
+view model =
+  div []
+    [ button [ onClick Decrement ] [ text "-" ]
+    , div [] [ text (String.fromInt model) ]
+    , button [ onClick Increment ] [ text "+" ]
+    ]
+</code>
+</pre>
+</section>
+
+<section id="more-details" class="title-slide slide level1">
+<h2>Talks</h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/RFrKffrKCeU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</section>
+
+<section id="installation" class="title-slide slide level1">
+<h2>Installation</h2>
+<p>Links are <a href="https://guide.elm-lang.org/install/elm.html">here</a></p>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=Elmtooling.elm-ls-vscode">Visual Studio Code Plugin</a></p>
+</section>
+
+<section id="exercise" class="title-slide slide level1">
+  <section class="level2">
+  <h2>Exercise</h2>
+  <p>How do you know what is the best?
+  <pre><code data-trim data-noescape>
+  mkdir project
+  cd project
+  elm init
+  elm reactor
+  </code></pre>
+  <p>Go to localhost:8000</p>
+  <p>Then, make a src folder, and put Main.elm in that folder</p>
+  </section>
+
+  <section class="level2">
+  <p>Copy the following empty application into Main.elm and open it in a reactor</p>
+  <pre><code data-trim data-noescape>
+  import Browser                                                                  
+  import Html exposing (Html, button, div, text)                                  
+  import Html.Events exposing (onClick)                                           
+                                                                                  
+  main =                                                                          
+    Browser.sandbox { init = init, update = update, view = view }                    
+
+  init : Model
+  init = ()
+                                                                                  
+  type Msg = ()
+  type Model = ()
+                                                                                  
+  update : Msg -> Model -> Model
+  update _ model = model
+                                                                                  
+  view : Model -> Html msg
+  view model = text "Hello World!"
+  </code></pre>
+  </section>
+
+  <section class="level2">
+  <p>Model = current state. init is the starting state</p>
+  <pre><code data-trim data-noescape>
+  type alias ProgrammingLanguage = 
+    { name : String
+    , industryUse : Int
+    , verbosity : Int
+    , nerdPoints : Int
+    }
+
+  type Model = List ProgrammingLanguage
+
+  init : Model
+  init = [ {name: "Elm", industryUse: 1, verbosity: 8, nerdPoints: 5}
+         , {name: "Java", industryUse: 10, verbosity: 10, nerdPoints: 0}
+         ]
+  </code></pre>
+  </section>
+
+  <section>
+    <p>What does it mean to be better?</p>
+
+  </section>
+</section>
+
+
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/reveal.js@4.1.0/dist/reveal.js"></script>
+
+  <!-- reveal.js plugins -->
+  <script src="https://unpkg.com/reveal.js@4.1.0/plugin/notes/notes.js"></script>
+  <script src="https://unpkg.com/reveal.js@4.1.0/plugin/search/search.js"></script>
+  <script src="https://unpkg.com/reveal.js@4.1.0/plugin/zoom/zoom.js"></script>
+  <script src="plugin/chart/Chart.min.js"></script>
+  <script src="plugin/chart/plugin.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+      
+        // Push each slide change to the browser history
+        history: true,
+
+        // reveal.js plugins
+        plugins: [
+          RevealNotes,
+          RevealChart,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    </body>
+</html>
