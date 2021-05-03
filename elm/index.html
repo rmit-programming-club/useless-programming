@@ -19,6 +19,9 @@
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    table {
+      font-size: 1.5rem;
+    }
   </style>
   <link rel="stylesheet" href="https://unpkg.com/reveal.js@4.1.0/dist/theme/black.css" id="theme">
 </head>
@@ -48,107 +51,39 @@
 <section id="example" class="slide level2">
 <h1>Example code</h1>
 <p>From <a href="https://guide.elm-lang.org/">here</a></p>
-<pre>
-<code data-trim data-noescape>
-import Browser
-import Html exposing (Html, button, div, text)
-import Html.Events exposing (onClick)
-
-main =
-  Browser.sandbox { init = 0, update = update, view = view }
-
-type Msg = Increment | Decrement
-
-update msg model =
-  case msg of
-    Increment ->
-      model + 1
-
-    Decrement ->
-      model - 1
-
-view model =
-  div []
-    [ button [ onClick Decrement ] [ text "-" ]
-    , div [] [ text (String.fromInt model) ]
-    , button [ onClick Increment ] [ text "+" ]
-    ]
-</code>
-</pre>
+<iframe src="https://ellie-app.com/embed/d4NcryCq3Dva1" style="border: 0; width: 100%; height: 400px;" allowfullscreen></iframe>
 </section>
-
 <section id="more-details" class="title-slide slide level1">
 <h2>Talks</h2>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/RFrKffrKCeU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </section>
 
-<section id="installation" class="title-slide slide level1">
-<h2>Installation</h2>
-<p>Links are <a href="https://guide.elm-lang.org/install/elm.html">here</a></p>
-<p><a href="https://marketplace.visualstudio.com/items?itemName=Elmtooling.elm-ls-vscode">Visual Studio Code Plugin</a></p>
-</section>
-
 <section id="exercise" class="title-slide slide level1">
   <section class="level2">
   <h2>Exercise</h2>
-  <p>How do you know what is the best?
-  <pre><code data-trim data-noescape>
-  mkdir project
-  cd project
-  elm init
-  elm reactor
-  </code></pre>
-  <p>Go to localhost:8000</p>
-  <p>Then, make a src folder, and put Main.elm in that folder</p>
-  </section>
-
-  <section class="level2">
-  <p>Copy the following empty application into Main.elm and open it in a reactor</p>
-  <pre><code data-trim data-noescape>
-  import Browser                                                                  
-  import Html exposing (Html, button, div, text)                                  
-  import Html.Events exposing (onClick)                                           
-                                                                                  
-  main =                                                                          
-    Browser.sandbox { init = init, update = update, view = view }                    
-
-  init : Model
-  init = ()
-                                                                                  
-  type Msg = ()
-  type Model = ()
-                                                                                  
-  update : Msg -> Model -> Model
-  update _ model = model
-                                                                                  
-  view : Model -> Html msg
-  view model = text "Hello World!"
-  </code></pre>
+  <iframe src="https://ellie-app.com/embed/d4NhXS875wqa1" style="border: 0; width: 100%; height: 400px;" allowfullscreen></iframe>
   </section>
 
   <section class="level2">
   <p>Model = current state. init is the starting state</p>
-  <pre><code data-trim data-noescape>
-  type alias ProgrammingLanguage = 
-    { name : String
-    , industryUse : Int
-    , verbosity : Int
-    , nerdPoints : Int
-    }
-
-  type Model = List ProgrammingLanguage
-
-  init : Model
-  init = [ {name: "Elm", industryUse: 1, verbosity: 8, nerdPoints: 5}
-         , {name: "Java", industryUse: 10, verbosity: 10, nerdPoints: 0}
-         ]
-  </code></pre>
+  <iframe src="https://ellie-app.com/embed/d4NrfYxQ3rha1" style="border: 0; width: 100%; height: 400px;" allowfullscreen></iframe>
   </section>
 
-  <section>
-    <p>What does it mean to be better?</p>
-
+  <section class="level2">
+  <p>Scores</p>
+  <iframe src="https://ellie-app.com/embed/d4NydFcBFhXa1" style="border: 0; width: 100%; height: 400px;" allowfullscreen></iframe>
   </section>
+
+  <section class="level2">
+  <p>Sorting</p>
+  <iframe src="https://ellie-app.com/embed/d4NBScDJSSZa1" style="border: 0; width: 100%; height: 400px;" allowfullscreen></iframe>
+  </section>
+</section>
+
+<section id="check-out-more" class="level1">
+  <h2>That's all folks!</h2>
+  <p><a href="https://github.com/rmit-programming-club/useless-programming">Slide Source</a>.</p>
+  <p>Elm <a href="https://guide.elm-lang.org/">Guide</a></p>
 </section>
 
 
